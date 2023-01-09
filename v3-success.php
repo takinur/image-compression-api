@@ -1,7 +1,7 @@
 <?php
 require 'vendor/autoload.php';
-// $stripe = new \Stripe\StripeClient('sk_test_51M4SshJIS3ZRoorBZvHTYKdzJIklepCBntigzytKFnAClBnzBrM7cFHKHzvT9lBu5H08VLzpf0EQU0Int4KN1IgZ00BoDkWVV1');
-$stripe = new \Stripe\StripeClient('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');
+// $stripe = new \Stripe\StripeClient('');
+$stripe = new \Stripe\StripeClient('');
 $session = $stripe->checkout->sessions->retrieve($_GET['session_id']);
 $id = $session->id;
 $customer_email = $session->customer_details->email;
