@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/style/form.css?ver=1.0.1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+  <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    html, body { overflow-y: auto; }
+    body { padding: 4vh 0; }
+    small { width: 70%; margin: auto; font-size: 14px !important; }
+    @media only screen and (max-width: 640px) {
+      small { width: 80%; font-size: 10px !important; }
+    }
+    .filepond--credits { display: none; }
+    .filepond--file-wrapper { display: none; }
+    .filepond--root { transform: none !important; height: 76px !important; }
+  </style>
+  <title>Digital You</title>
+</head>
+<body>
+  <form id="form" enctype="multipart/form-data" name="imageUpload">
+    <h2>Thanks for your purchase!</h2>
+
+    <p style="text-align: center;">
+      Please upload <b>18–25</b> photos where your face is clearly visible (crop if necessary)
+    </p>
+    <br />
+    <small>
+      &#8259; Upload photos with different lighting, facial expressions and locations<br />
+      &#8259; No teeth, no sunglasses, no nudes or inappropriate content<br />
+      &#8259; Avoid having other faces in your photos<br /><br />
+      The better the images, the better the results.
+    </small>
+    <br />
+
+    <div style="position: relative; width: 100%;">
+      <input id="files" style="width: 100%;" type="file" class="filepond" name="my_file[]" multiple />
+    </div>
+
+    <h5 id="fileCount" style="text-align: center; width: 100%;"></h5>
+    <br />
+
+    <div style="display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 10px;">
+      <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <img style="width: 100px; height: 100px; object-fit: cover;" src="/assets/Chest_Up.jfif" alt="Close up example" />
+        <small style="font-size: 10px;">10x close ups</small>
+      </div>
+      <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <img style="width: 100px; height: 100px; object-fit: cover;" src="/assets/close-up.jfif" alt="Chest up example" />
+        <small style="font-size: 10px;">5x chest up</small>
+      </div>
+      <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <img style="width: 100px; height: 100px; object-fit: cover;" src="/assets/side.jfif" alt="Side view example" />
+        <small style="font-size: 10px;">3x side</small>
+      </div>
+    </div>
+    <br />
+
+    <label>Select your gender:</label>
+    <select id="className">
+      <option value="man">Man</option>
+      <option value="woman">Woman</option>
+    </select>
+
+    <button style="cursor: pointer;" type="submit" id="button">Upload</button>
+    <br />
+  </form>
+
+  <div class="loader" id="loader"></div>
+
+  <div id="success">
+    <h4>
+      Everything looks great! &#x2705;<br />
+      The AI nanobots have started crafting your Digital You.<br /><br />
+      You will receive an email in the next 3 hours.
+      Check your Promotions tab or junk mail if you don't see it.
+    </h4>
+    <br />
+    <a href="/index.html">Return to main page</a>
+  </div>
+
+  <!-- CDN Dependencies -->
+  <script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
+  <script
+    type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/browser-image-compression@2.0.0/dist/browser-image-compression.js"
+  ></script>
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"
+  ></script>
+
+  <!-- Compiled client TypeScript (npm run build:client) -->
+  <script type="module" src="/client.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      $('body').css('height', window.innerHeight);
+      $(window).resize(function () {
+        $('body').css('height', window.innerHeight);
+      }).resize();
+    });
+  </script>
+</body>
+</html>
