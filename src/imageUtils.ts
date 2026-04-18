@@ -8,6 +8,8 @@ export interface ResizeDimensions {
   height: number;
 }
 
+const DEFAULT_JPEG_QUALITY = 0.7;
+
 /**
  * Calculates new dimensions while preserving the original aspect ratio.
  */
@@ -41,7 +43,7 @@ export function resizeImage(
   file: File,
   maxWidth: number = 512,
   maxHeight: number = 512,
-  quality: number = 0.7
+  quality: number = DEFAULT_JPEG_QUALITY
 ): Promise<File> {
   return new Promise((resolve, reject) => {
     const img = new Image();

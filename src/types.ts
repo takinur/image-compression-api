@@ -3,6 +3,8 @@ export interface UploadSession {
   customerEmail: string;
 }
 
+export type UploadClass = 'man' | 'woman';
+
 export interface CompressionOptions {
   maxSizeMB: number;
   maxWidthOrHeight: number;

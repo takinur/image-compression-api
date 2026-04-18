@@ -1,5 +1,7 @@
 # image-compression-api
 
+Last refreshed: 2026-04-18
+
 A client-side image compression and upload tool built with TypeScript. Users pick 18–25 photos, the browser compresses and resizes them automatically, then sends them straight to your API — no server-side image processing needed.
 
 ## What it does
@@ -77,3 +79,7 @@ npm run dev
 4. Each image is compressed to ≤1MB at 512×512px before any network request
 5. Compressed files are POSTed to `/api/upload`
 6. Server re-verifies the Stripe session and fires a confirmation email
+
+## Notes
+
+- Repository received a lightweight refresh update on 2026-04-18.

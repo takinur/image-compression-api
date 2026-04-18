@@ -26,6 +26,7 @@ interface FilePondInstance {
 const MIN_IMAGES = 18;
 const MAX_IMAGES = 25;
 const MAX_TOTAL_SIZE_BYTES = 150 * 1024 * 1024;
+const ACCEPTED_IMAGE_MIME_TYPES = ['image/png', 'image/jpeg', 'image/jpg'];
 
 // DOM references
 const input = document.querySelector<HTMLInputElement>('input[type="file"]')!;
@@ -41,7 +42,7 @@ const pond: FilePondInstance = FilePond.create(input, {
   allowProcess: false,
   storeAsFile: true,
   allowMultiple: true,
-  acceptedFileTypes: ['image/png', 'image/jpeg', 'image/jpg'],
+  acceptedFileTypes: ACCEPTED_IMAGE_MIME_TYPES,
   allowDrop: false,
   labelIdle: '<span class="filepond--label-action">Browse</span> images',
 });

@@ -11,6 +11,7 @@ dotenv.config();
 const MIN_FILES = 18;
 const MAX_FILES = 25;
 const MAX_FILE_SIZE_BYTES = 4 * 1024 * 1024; // 4MB per file
+const APP_DISPLAY_NAME = 'Digital You';
 
 const app = express();
 const PORT = process.env.PORT ?? 3000;
@@ -150,15 +151,15 @@ async function sendConfirmationEmail(to: string): Promise<void> {
   });
 
   await transporter.sendMail({
-    from: `"Digital You" <${process.env.SMTP_FROM ?? 'noreply@example.com'}>`,
+    from: `"${APP_DISPLAY_NAME}" <${process.env.SMTP_FROM ?? 'noreply@example.com'}>`,
     to,
-    subject: 'Digital You — Your Order is Confirmed',
+    subject: `${APP_DISPLAY_NAME} — Your Order is Confirmed`,
     html: getEmailTemplate(),
   });
 }
 
 app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+  console.log(`${APP_DISPLAY_NAME} server running at http://localhost:${PORT}`);
 });
 
 export default app;
